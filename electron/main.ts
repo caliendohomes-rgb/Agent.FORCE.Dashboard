@@ -17,7 +17,7 @@ function createWindow() {
     title: 'Agent FORCE Dashboard',
     backgroundColor: '#030611',
     webPreferences: {
-      preload: path.join(__dirname, 'electron/preload.js'),
+      preload: path.join(__dirname, 'preload.js'),
       contextIsolation: true,
       nodeIntegration: false,
       sandbox: false
@@ -28,7 +28,7 @@ function createWindow() {
     mainWindow.loadURL(process.env.VITE_DEV_SERVER_URL);
     mainWindow.webContents.openDevTools({ mode: 'detach' });
   } else {
-    mainWindow.loadFile(path.join(__dirname, '../dist/index.html'));
+    mainWindow.loadFile(path.join(__dirname, '../../dist/index.html'));
   }
 }
 
