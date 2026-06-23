@@ -4,6 +4,8 @@ export type ProjectStatus = 'Ready' | 'Planning' | 'Building' | 'Needs QA' | 'Pa
 
 export type LaunchActionType = 'url' | 'path' | 'command';
 
+export type DailyReportSignal = 'win' | 'risk' | 'next' | 'blocked' | 'metric';
+
 export interface LaunchAction {
   id: string;
   label: string;
@@ -23,6 +25,28 @@ export interface AgentUnit {
   description: string;
   tags: string[];
   launchActions: LaunchAction[];
+}
+
+export interface DailyReportItem {
+  id: string;
+  signal: DailyReportSignal;
+  title: string;
+  detail: string;
+}
+
+export interface DailyReport {
+  id: string;
+  projectId: string;
+  generatedAt: string;
+  title: string;
+  executiveSummary: string;
+  readinessScore: number;
+  automationScore: number;
+  riskScore: number;
+  coverageScore: number;
+  agentCount: number;
+  reportItems: DailyReportItem[];
+  commanderNotes: string[];
 }
 
 export interface AgentProject {
